@@ -209,7 +209,7 @@ async def _wrapped_interaction(
         i = await state.client.wait_for(
             'interaction_finish',
             check=lambda d: d.nonce == nonce,
-            timeout=12,
+            timeout=300,
         )
     except (asyncio.TimeoutError, asyncio.CancelledError) as exc:
         raise InvalidData('Did not receive a response from Discord') from exc
